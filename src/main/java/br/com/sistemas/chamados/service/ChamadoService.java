@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.sistemas.chamados.dto.AtribuirTecnicoRequest;
+import br.com.sistemas.chamados.dto.AtualizarStatusChamadoRequest;
 import br.com.sistemas.chamados.dto.ChamadoRequest;
 import br.com.sistemas.chamados.dto.ChamadoResponse;
 import br.com.sistemas.chamados.entity.Categoria;
@@ -13,6 +15,7 @@ import br.com.sistemas.chamados.entity.Chamado;
 import br.com.sistemas.chamados.entity.Cliente;
 import br.com.sistemas.chamados.entity.StatusChamado;
 import br.com.sistemas.chamados.entity.Tecnico;
+import br.com.sistemas.chamados.exception.RegraNegocioException;
 import br.com.sistemas.chamados.exception.RecursoNaoEncontradoException;
 import br.com.sistemas.chamados.repository.CategoriaRepository;
 import br.com.sistemas.chamados.repository.ChamadoRepository;
@@ -64,6 +67,8 @@ public class ChamadoService {
     @Transactional
     public ChamadoResponse atualizar(Long id, ChamadoRequest dto) {
         Chamado chamado = buscarEntidade(id);
+        garantirNaoFechado(chamado, "alterar");
+
         chamado.setTitulo(dto.titulo());
         chamado.setDescricao(dto.descricao());
         chamado.setPrioridade(dto.prioridade());
@@ -72,17 +77,50 @@ public class ChamadoService {
         chamado.setTecnico(buscarTecnico(dto.tecnicoId()));
 
         if (dto.status() != null) {
-            chamado.setStatus(dto.status());
-            chamado.setDataFechamento(dto.status() == StatusChamado.FECHADO
-                    ? (chamado.getDataFechamento() == null ? LocalDateTime.now() : chamado.getDataFechamento())
-                    : null);
+            aplicarStatus(chamado, dto.status());
         }
         return ChamadoResponse.de(chamado);
     }
 
     @Transactional
+    public ChamadoResponse atribuirTecnico(Long id, AtribuirTecnicoRequest dto) {
+        Chamado chamado = buscarEntidade(id);
+        garantirNaoFechado(chamado, "atribuir técnico a");
+        chamado.setTecnico(buscarTecnico(dto.tecnicoId()));
+        return ChamadoResponse.de(chamado);
+    }
+
+    @Transactional
+    public ChamadoResponse atualizarStatus(Long id, AtualizarStatusChamadoRequest dto) {
+        Chamado chamado = buscarEntidade(id);
+        garantirNaoFechado(chamado, "alterar o status de");
+        aplicarStatus(chamado, dto.status());
+        return ChamadoResponse.de(chamado);
+    }
+
+    private void aplicarStatus(Chamado chamado, StatusChamado novoStatus) {
+        if (chamado.getStatus() == StatusChamado.FECHADO) {
+            throw new RegraNegocioException("Não é permitido alterar um chamado fechado");
+        }
+        chamado.setStatus(novoStatus);
+        if (novoStatus == StatusChamado.FECHADO) {
+            chamado.setDataFechamento(LocalDateTime.now());
+        } else {
+            chamado.setDataFechamento(null);
+        }
+    }
+
+    private void garantirNaoFechado(Chamado chamado, String acao) {
+        if (chamado.getStatus() == StatusChamado.FECHADO) {
+            throw new RegraNegocioException("Não é permitido " + acao + " chamado fechado");
+        }
+    }
+
+    @Transactional
     public void excluir(Long id) {
-        chamadoRepository.delete(buscarEntidade(id));
+        Chamado chamado = buscarEntidade(id);
+        garantirNaoFechado(chamado, "excluir");
+        chamadoRepository.delete(chamado);
     }
 
     private Chamado buscarEntidade(Long id) {
