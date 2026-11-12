@@ -38,20 +38,20 @@
                     </div><a class="btn btn-primary" href="chamado-form.html">＋ Novo chamado</a>
                 </div>
                 <section class="card table-card">
-                    <div class="filters"><input class="search" type="search"
-                            placeholder="Buscar por título ou descrição"><select>
-                            <option>Todos os status</option>
+                    <div class="filters"><input id="filtro-busca" class="search" type="search"
+                            placeholder="Buscar por título ou descrição"><select id="filtro-status">
+                            <option value="">Todos os status</option>
                             <option>ABERTO</option>
                             <option>EM_ATENDIMENTO</option>
                             <option>AGUARDANDO_CLIENTE</option>
                             <option>FECHADO</option>
-                        </select><select>
-                            <option>Todas as prioridades</option>
+                        </select><select id="filtro-prioridade">
+                            <option value="">Todas as prioridades</option>
                             <option>BAIXA</option>
                             <option>MEDIA</option>
                             <option>ALTA</option>
                             <option>CRITICA</option>
-                        </select><input class="search" style="min-width:130px" type="number"
+                        </select><input id="filtro-cliente" class="search" style="min-width:130px" type="number"
                             placeholder="ID do cliente"></div>
                     <div class="table-wrap">
                         <table>
@@ -68,7 +68,7 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="chamados-tbody">
                                 <tr>
                                     <td class="ticket-id">#1024</td>
                                     <td>Computador não inicia</td>
@@ -116,16 +116,18 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-heading"><span class="muted">Exibindo 4 de 128 chamados (dados ilustrativos)</span>
-                        <div><button class="btn btn-light">← Anterior</button> <button class="btn btn-light">Próxima
-                                →</button></div>
+                    <div class="card-heading"><span class="muted"><span id="paginacao-info">Carregando
+                                chamados...</span></span>
+                        <div><button id="pagina-anterior" class="btn btn-light" type="button">← Anterior</button>
+                            <button id="pagina-proxima" class="btn btn-light" type="button">Próxima →</button></div>
                     </div>
                 </section>
-                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API a implementar
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API Spring Boot
                 </div>
             </section>
         </main>
     </div>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

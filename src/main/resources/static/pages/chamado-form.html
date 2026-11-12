@@ -39,27 +39,20 @@
                 </div>
                 <section class="card form-card">
                     <h2>Informações do chamado</h2>
-                    <form>
+                    <form id="form-chamado">
                         <div class="form-grid">
                             <div class="field span-2"><label for="titulo">Título *</label><input id="titulo"
                                     placeholder="Ex.: Computador não inicia" required></div>
                             <div class="field span-2"><label for="descricao">Descrição *</label><textarea id="descricao"
                                     placeholder="Descreva o problema ou solicitação..." required></textarea></div>
                             <div class="field"><label for="cliente">Cliente *</label><select id="cliente">
-                                    <option>Selecione um cliente</option>
-                                    <option>Mariana Costa</option>
-                                    <option>João Pedro</option>
+                                    <option value="">Selecione um cliente</option>
                                 </select></div>
                             <div class="field"><label for="categoria">Categoria *</label><select id="categoria">
-                                    <option>Selecione uma categoria</option>
-                                    <option>Hardware</option>
-                                    <option>Software</option>
-                                    <option>Redes</option>
+                                    <option value="">Selecione uma categoria</option>
                                 </select></div>
-                            <div class="field"><label for="tecnico">Técnico responsável</label><select id="tecnico">
-                                    <option>Não atribuído</option>
-                                    <option>Lucas Mendes</option>
-                                    <option>Ana Souza</option>
+                            <div class="field"><label for="tecnico">Técnico responsável *</label><select id="tecnico">
+                                    <option value="">Selecione um técnico</option>
                                 </select></div>
                             <div class="field"><label for="prioridade">Prioridade *</label><select id="prioridade">
                                     <option>BAIXA</option>
@@ -69,16 +62,17 @@
                                 </select></div>
                         </div>
                         <div class="form-actions"><a class="btn btn-light" href="chamados.html">Cancelar</a><button
-                                class="btn btn-primary" type="button">Criar chamado</button></div>
-                        <p class="muted" style="font-size:11px;margin:14px 0 0">Protótipo visual: a gravação será
-                            conectada à API pelo JavaScript.</p>
+                                class="btn btn-primary" type="submit">Criar chamado</button></div>
+                        <p class="muted" style="font-size:11px;margin:14px 0 0">O chamado será salvo pela API do
+                            sistema.</p>
                     </form>
                 </section>
-                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API a implementar
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API Spring Boot
                 </div>
             </section>
         </main>
     </div>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

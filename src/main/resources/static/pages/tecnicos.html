@@ -49,7 +49,7 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tecnicos-tbody">
                                 <tr>
                                     <td><strong>Lucas Mendes</strong></td>
                                     <td>lucas@empresa.com</td>
@@ -79,23 +79,27 @@
                     <h2>Novo técnico/usuário</h2>
                 </div>
                 <section class="card form-card">
-                    <div class="form-grid">
-                        <div class="field"><label>Nome *</label><input placeholder="Nome completo"></div>
-                        <div class="field"><label>E-mail *</label><input type="email" placeholder="email@empresa.com">
+                    <form id="form-tecnico">
+                        <div class="form-grid">
+                            <div class="field"><label>Nome *</label><input id="tecnico-nome" placeholder="Nome completo"
+                                    required></div>
+                            <div class="field"><label>E-mail *</label><input id="tecnico-email" type="email"
+                                    placeholder="email@empresa.com" required></div>
+                            <div class="field"><label>Perfil *</label><select id="tecnico-perfil">
+                                    <option value="TECNICO">TECNICO</option>
+                                    <option value="ADMIN">ADMIN</option>
+                                </select></div>
                         </div>
-                        <div class="field"><label>Perfil *</label><select>
-                                <option>TECNICO</option>
-                                <option>ADMIN</option>
-                            </select></div>
-                    </div>
-                    <div class="form-actions"><button class="btn btn-primary" type="button">Salvar usuário</button>
-                    </div>
+                        <div class="form-actions"><button class="btn btn-primary" type="submit">Salvar usuário</button>
+                        </div>
+                    </form>
                 </section>
-                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API a implementar
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API Spring Boot
                 </div>
             </section>
         </main>
     </div>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

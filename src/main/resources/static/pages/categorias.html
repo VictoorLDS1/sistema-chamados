@@ -48,7 +48,7 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="categorias-tbody">
                                 <tr>
                                     <td><strong>Hardware</strong></td>
                                     <td>Equipamentos e periféricos</td>
@@ -75,18 +75,23 @@
                     <h2>Nova categoria</h2>
                 </div>
                 <section class="card form-card">
-                    <div class="form-grid">
-                        <div class="field"><label>Nome *</label><input placeholder="Ex.: Hardware"></div>
-                        <div class="field"><label>Descrição</label><input placeholder="Descreva a categoria"></div>
-                    </div>
-                    <div class="form-actions"><button class="btn btn-primary" type="button">Salvar categoria</button>
-                    </div>
+                    <form id="form-categoria">
+                        <div class="form-grid">
+                            <div class="field"><label>Nome *</label><input id="categoria-nome"
+                                    placeholder="Ex.: Hardware" required></div>
+                            <div class="field"><label>Descrição</label><input id="categoria-descricao"
+                                    placeholder="Descreva a categoria"></div>
+                        </div>
+                        <div class="form-actions"><button class="btn btn-primary" type="submit">Salvar
+                                categoria</button></div>
+                    </form>
                 </section>
-                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API a implementar
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API Spring Boot
                 </div>
             </section>
         </main>
     </div>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>

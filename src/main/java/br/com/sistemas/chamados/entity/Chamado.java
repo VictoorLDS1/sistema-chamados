@@ -1,6 +1,8 @@
 package br.com.sistemas.chamados.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,9 +15,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import br.com.sistemas.chamados.enum.Prioridade;
-import br.com.sistemas.chamados.enum.StatusChamado;
 
 @Entity
 @Table(name = "chamados")
@@ -56,6 +57,9 @@ public class Chamado {
     @JoinColumn(name = "tecnico_id", nullable = false)
     private Tecnico tecnico;
 
+    @OneToMany(mappedBy = "chamado")
+    private List<Comentario> comentarios = new ArrayList<>();
+
     public Chamado() {}
 
     public Chamado(String titulo, String descricao, Prioridade prioridade,
@@ -92,5 +96,6 @@ public class Chamado {
     public Categoria getCategoria() { return categoria; }
     public void setCategoria(Categoria categoria) { this.categoria = categoria; }
     public Tecnico getTecnico() { return tecnico; }
+    public List<Comentario> getComentarios() { return comentarios; }
     public void setTecnico(Tecnico tecnico) { this.tecnico = tecnico; }
 }

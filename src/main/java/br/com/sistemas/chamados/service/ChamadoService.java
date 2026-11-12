@@ -2,6 +2,8 @@ package br.com.sistemas.chamados.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,16 +11,21 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.sistemas.chamados.dto.AtribuirTecnicoRequest;
 import br.com.sistemas.chamados.dto.AtualizarStatusChamadoRequest;
 import br.com.sistemas.chamados.dto.ChamadoRequest;
+import br.com.sistemas.chamados.dto.ComentarioRequest;
+import br.com.sistemas.chamados.dto.ComentarioResponse;
 import br.com.sistemas.chamados.dto.ChamadoResponse;
 import br.com.sistemas.chamados.entity.Categoria;
 import br.com.sistemas.chamados.entity.Chamado;
+import br.com.sistemas.chamados.entity.Comentario;
 import br.com.sistemas.chamados.entity.Cliente;
+import br.com.sistemas.chamados.entity.Prioridade;
 import br.com.sistemas.chamados.entity.StatusChamado;
 import br.com.sistemas.chamados.entity.Tecnico;
 import br.com.sistemas.chamados.exception.RegraNegocioException;
 import br.com.sistemas.chamados.exception.RecursoNaoEncontradoException;
 import br.com.sistemas.chamados.repository.CategoriaRepository;
 import br.com.sistemas.chamados.repository.ChamadoRepository;
+import br.com.sistemas.chamados.repository.ComentarioRepository;
 import br.com.sistemas.chamados.repository.ClienteRepository;
 import br.com.sistemas.chamados.repository.TecnicoRepository;
 
@@ -26,15 +33,18 @@ import br.com.sistemas.chamados.repository.TecnicoRepository;
 public class ChamadoService {
 
     private final ChamadoRepository chamadoRepository;
+    private final ComentarioRepository comentarioRepository;
     private final ClienteRepository clienteRepository;
     private final CategoriaRepository categoriaRepository;
     private final TecnicoRepository tecnicoRepository;
 
     public ChamadoService(ChamadoRepository chamadoRepository,
+                          ComentarioRepository comentarioRepository,
                           ClienteRepository clienteRepository,
                           CategoriaRepository categoriaRepository,
                           TecnicoRepository tecnicoRepository) {
         this.chamadoRepository = chamadoRepository;
+        this.comentarioRepository = comentarioRepository;
         this.clienteRepository = clienteRepository;
         this.categoriaRepository = categoriaRepository;
         this.tecnicoRepository = tecnicoRepository;
@@ -46,6 +56,7 @@ public class ChamadoService {
         Categoria categoria = buscarCategoria(dto.categoriaId());
         Tecnico tecnico = buscarTecnico(dto.tecnicoId());
 
+        // Todo chamado novo nasce ABERTO e recebe dataAbertura no @PrePersist.
         Chamado chamado = new Chamado(dto.titulo(), dto.descricao(),
                 dto.prioridade(), cliente, categoria, tecnico);
         chamado.setStatus(StatusChamado.ABERTO);
@@ -54,14 +65,37 @@ public class ChamadoService {
     }
 
     @Transactional(readOnly = true)
-    public List<ChamadoResponse> listar() {
-        return chamadoRepository.findAll().stream()
-                .map(ChamadoResponse::de).toList();
+    public Page<ChamadoResponse> listar(StatusChamado status, Prioridade prioridade,
+                                        Long clienteId, Pageable pageable) {
+        return chamadoRepository.buscarComFiltros(status, prioridade, clienteId, pageable)
+                .map(ChamadoResponse::de);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<ChamadoResponse> listarPorCliente(Long clienteId, Pageable pageable) {
+        // Garante resposta 404 quando o cliente informado não existe.
+        buscarCliente(clienteId);
+        return chamadoRepository.findByClienteId(clienteId, pageable)
+                .map(ChamadoResponse::de);
     }
 
     @Transactional(readOnly = true)
     public ChamadoResponse buscar(Long id) {
         return ChamadoResponse.de(buscarEntidade(id));
+    }
+
+    @Transactional
+    public ComentarioResponse adicionarComentario(Long chamadoId, ComentarioRequest dto) {
+        Chamado chamado = buscarEntidade(chamadoId);
+        Comentario comentario = new Comentario(dto.texto().trim(), dto.autor().trim(), chamado);
+        return ComentarioResponse.de(comentarioRepository.save(comentario));
+    }
+
+    @Transactional(readOnly = true)
+    public List<ComentarioResponse> listarComentarios(Long chamadoId) {
+        buscarEntidade(chamadoId);
+        return comentarioRepository.findByChamadoIdOrderByDataAsc(chamadoId)
+                .stream().map(ComentarioResponse::de).toList();
     }
 
     @Transactional
@@ -76,6 +110,7 @@ public class ChamadoService {
         chamado.setCategoria(buscarCategoria(dto.categoriaId()));
         chamado.setTecnico(buscarTecnico(dto.tecnicoId()));
 
+        // Compatibilidade com o PUT já existente: se vier status, aplica a mesma regra.
         if (dto.status() != null) {
             aplicarStatus(chamado, dto.status());
         }

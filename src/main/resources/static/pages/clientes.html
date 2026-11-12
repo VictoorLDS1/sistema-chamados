@@ -38,7 +38,7 @@
                     </div><a class="btn btn-primary" href="#novo-cliente">＋ Novo cliente</a>
                 </div>
                 <section class="card table-card">
-                    <div class="filters"><input class="search" type="search"
+                    <div class="filters"><input id="busca-cliente" class="search" type="search"
                             placeholder="Buscar cliente por nome ou e-mail"></div>
                     <div class="table-wrap">
                         <table>
@@ -51,7 +51,7 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="clientes-tbody">
                                 <tr>
                                     <td><strong>Mariana Costa</strong></td>
                                     <td>mariana@email.com</td>
@@ -81,20 +81,25 @@
                     <h2>Novo cliente</h2>
                 </div>
                 <section class="card form-card">
-                    <div class="form-grid">
-                        <div class="field"><label>Nome *</label><input placeholder="Nome completo"></div>
-                        <div class="field"><label>E-mail *</label><input type="email" placeholder="email@exemplo.com">
+                    <form id="form-cliente">
+                        <div class="form-grid">
+                            <div class="field"><label>Nome *</label><input id="cliente-nome" placeholder="Nome completo"
+                                    required></div>
+                            <div class="field"><label>E-mail *</label><input id="cliente-email" type="email"
+                                    placeholder="email@exemplo.com" required></div>
+                            <div class="field"><label>Telefone</label><input id="cliente-telefone"
+                                    placeholder="(00) 00000-0000"></div>
                         </div>
-                        <div class="field"><label>Telefone</label><input placeholder="(00) 00000-0000"></div>
-                    </div>
-                    <div class="form-actions"><button class="btn btn-primary" type="button">Salvar cliente</button>
-                    </div>
+                        <div class="form-actions"><button class="btn btn-primary" type="submit">Salvar cliente</button>
+                        </div>
+                    </form>
                 </section>
-                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API a implementar
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API Spring Boot
                 </div>
             </section>
         </main>
     </div>
+    <script src="../js/app.js" defer></script>
 </body>
 
 </html>
