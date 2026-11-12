@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhe do chamado | HelpDesk</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar"><a class="brand" href="../index.html"><span class="brand-mark">H</span> helpdesk<span
+                    style="color:#8c9aff">.</span></a>
+            <div>
+                <div class="nav-label">MENU PRINCIPAL</div>
+                <nav class="nav"><a class="" href="../index.html"><span class="ico">⌂</span>Visão geral</a><a
+                        class="active" href="../pages/chamados.html"><span class="ico">▤</span>Chamados</a><a class=""
+                        href="../pages/clientes.html"><span class="ico">♙</span>Clientes</a><a class=""
+                        href="../pages/categorias.html"><span class="ico">▦</span>Categorias</a><a class=""
+                        href="../pages/tecnicos.html"><span class="ico">⚙</span>Técnicos</a></nav>
+            </div>
+            <div class="side-bottom">Sistema de Gestão de Chamados<br>Projeto acadêmico · Interface HTML/CSS</div>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div class="crumb"><span class="mobile-menu">☰　</span>Workspace　/　<strong>Detalhe do chamado</strong>
+                </div>
+                <div class="top-actions"><span class="muted">Central de suporte</span>
+                    <div class="avatar">AD</div><span class="user">Administrador</span>
+                </div>
+            </header>
+            <section class="content">
+                <div class="page-head">
+                    <div>
+                        <div class="eyebrow">Chamados / #1024</div>
+                        <h1>Computador não inicia</h1>
+                        <p class="sub">Criado em 05/11/2026 às 09:32 · <span class="badge b-orange">ABERTO</span></p>
+                    </div><a class="btn btn-light" href="chamados.html">← Voltar aos chamados</a>
+                </div>
+                <div class="grid detail-grid">
+                    <div class="grid">
+                        <section class="card">
+                            <h2>Descrição</h2>
+                            <p style="line-height:1.8">O computador da recepção não está iniciando. Ao pressionar o
+                                botão de energia, os leds acendem, mas não aparece imagem no monitor.</p>
+                            <div class="detail-list">
+                                <div class="detail-item"><small>Cliente</small><strong>Mariana Costa</strong></div>
+                                <div class="detail-item"><small>Categoria</small><strong>Hardware</strong></div>
+                                <div class="detail-item"><small>Prioridade</small><strong
+                                        class="priority p-high">ALTA</strong></div>
+                                <div class="detail-item"><small>Técnico</small><strong>Lucas Mendes</strong></div>
+                            </div>
+                        </section>
+                        <section class="card">
+                            <h2>Histórico e comentários</h2>
+                            <div class="timeline">
+                                <div class="event"><small>05/11/2026 · 09:32 · Mariana Costa</small>
+                                    <p>Chamado aberto: computador não inicia.</p>
+                                </div>
+                                <div class="event"><small>05/11/2026 · 10:05 · Lucas Mendes</small>
+                                    <p>Vou verificar a fonte e as conexões internas do equipamento.</p>
+                                </div>
+                            </div>
+                            <div class="field" style="margin-top:24px"><label>Adicionar comentário</label><textarea
+                                    placeholder="Escreva uma atualização para o histórico..."></textarea>
+                                <div style="display:flex;justify-content:flex-end;margin-top:10px"><button
+                                        class="btn btn-primary" type="button">Enviar comentário</button></div>
+                            </div>
+                        </section>
+                    </div>
+                    <aside class="card">
+                        <h2>Ações do chamado</h2>
+                        <div class="field"><label>Status</label><select>
+                                <option>ABERTO</option>
+                                <option>EM_ATENDIMENTO</option>
+                                <option>AGUARDANDO_CLIENTE</option>
+                                <option>FECHADO</option>
+                            </select></div>
+                        <div class="field" style="margin-top:15px"><label>Atribuir técnico</label><select>
+                                <option>Lucas Mendes</option>
+                                <option>Ana Souza</option>
+                            </select></div><button class="btn btn-primary"
+                            style="width:100%;justify-content:center;margin-top:18px" type="button">Salvar
+                            alterações</button>
+                        <p class="sub" style="font-size:11px;margin-top:14px">Ações ilustrativas. As regras de negócio
+                            serão integradas ao backend.</p>
+                    </aside>
+                </div>
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API a implementar
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
