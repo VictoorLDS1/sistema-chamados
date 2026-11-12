@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import br.com.sistemas.chamados.enum.Perfil;
 
 @Entity
 @Table(name = "tecnicos")

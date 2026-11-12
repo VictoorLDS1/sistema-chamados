@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhe do chamado | HelpDesk</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar"><a class="brand" href="../index.html"><span class="brand-mark">H</span> helpdesk<span
+                    style="color:#8c9aff">.</span></a>
+            <div>
+                <div class="nav-label">MENU PRINCIPAL</div>
+                <nav class="nav"><a class="" href="../index.html"><span class="ico">⌂</span>Visão geral</a><a
+                        class="active" href="../pages/chamados.html"><span class="ico">▤</span>Chamados</a><a class=""
+                        href="../pages/clientes.html"><span class="ico">♙</span>Clientes</a><a class=""
+                        href="../pages/categorias.html"><span class="ico">▦</span>Categorias</a><a class=""
+                        href="../pages/tecnicos.html"><span class="ico">⚙</span>Técnicos</a></nav>
+            </div>
+            <div class="side-bottom">Sistema de Gestão de Chamados<br>Projeto acadêmico · Interface HTML/CSS</div>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div class="crumb"><span class="mobile-menu">☰　</span>Workspace　/　<strong>Detalhe do chamado</strong>
+                </div>
+                <div class="top-actions"><span class="muted">Central de suporte</span>
+                    <div class="avatar">AD</div><span class="user">Administrador</span>
+                </div>
+            </header>
+            <section class="content">
+                <div class="page-head">
+                    <div>
+                        <div class="eyebrow">Chamados / #1024</div>
+                        <h1 id="detalhe-titulo">Carregando chamado...</h1>
+                        <p class="sub"><span id="detalhe-data">Carregando...</span> · <span id="detalhe-status"
+                                class="badge b-orange">...</span></p>
+                    </div><a class="btn btn-light" href="chamados.html">← Voltar aos chamados</a>
+                </div>
+                <div class="grid detail-grid">
+                    <div class="grid">
+                        <section class="card">
+                            <h2>Descrição</h2>
+                            <p id="detalhe-descricao" style="line-height:1.8">Carregando descrição...</p>
+                            <div class="detail-list">
+                                <div class="detail-item"><small>Cliente</small><strong id="detalhe-cliente">—</strong>
+                                </div>
+                                <div class="detail-item"><small>Categoria</small><strong
+                                        id="detalhe-categoria">—</strong></div>
+                                <div class="detail-item"><small>Prioridade</small><strong id="detalhe-prioridade"
+                                        class="priority p-high">—</strong></div>
+                                <div class="detail-item"><small>Técnico</small><strong id="detalhe-tecnico">—</strong>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="card">
+                            <h2>Histórico e comentários</h2>
+                            <div class="timeline" id="comentarios-lista">
+                                <p class="muted">Carregando histórico...</p>
+                            </div>
+                            <div class="field" style="margin-top:24px"><label>Adicionar comentário</label><textarea
+                                    id="comentario-texto"
+                                    placeholder="Escreva uma atualização para o histórico..."></textarea>
+                                <div style="display:flex;justify-content:flex-end;margin-top:10px"><button
+                                        id="enviar-comentario" class="btn btn-primary" type="button">Enviar
+                                        comentário</button></div>
+                            </div>
+                        </section>
+                    </div>
+                    <aside class="card">
+                        <h2>Ações do chamado</h2>
+                        <div class="field"><label>Status</label><select id="acao-status">
+                                <option value="ABERTO">ABERTO</option>
+                                <option>EM_ATENDIMENTO</option>
+                                <option>AGUARDANDO_CLIENTE</option>
+                                <option>FECHADO</option>
+                            </select></div>
+                        <div class="field" style="margin-top:15px"><label>Atribuir técnico</label><select
+                                id="acao-tecnico"></select></div><button id="salvar-acoes" class="btn btn-primary"
+                            style="width:100%;justify-content:center;margin-top:18px" type="button">Salvar
+                            alterações</button>
+                        <p class="sub" style="font-size:11px;margin-top:14px">As alterações serão enviadas à API.</p>
+                    </aside>
+                </div>
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API Spring Boot
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

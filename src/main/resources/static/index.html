@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visão geral | HelpDesk</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar"><a class="brand" href="./index.html"><span class="brand-mark">H</span> helpdesk<span
+                    style="color:#8c9aff">.</span></a>
+            <div>
+                <div class="nav-label">MENU PRINCIPAL</div>
+                <nav class="nav"><a class="active" href="./index.html"><span class="ico">⌂</span>Visão geral</a><a
+                        class="" href="./pages/chamados.html"><span class="ico">▤</span>Chamados</a><a class=""
+                        href="./pages/clientes.html"><span class="ico">♙</span>Clientes</a><a class=""
+                        href="./pages/categorias.html"><span class="ico">▦</span>Categorias</a><a class=""
+                        href="./pages/tecnicos.html"><span class="ico">⚙</span>Técnicos</a></nav>
+            </div>
+            <div class="side-bottom">Sistema de Gestão de Chamados<br>Projeto acadêmico · Interface HTML/CSS</div>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div class="crumb"><span class="mobile-menu">☰　</span>Workspace　/　<strong>Visão geral</strong></div>
+                <div class="top-actions"><span class="muted">Central de suporte</span>
+                    <div class="avatar">AD</div><span class="user">Administrador</span>
+                </div>
+            </header>
+            <section class="content">
+                <div class="page-head">
+                    <div>
+                        <div class="eyebrow">Painel de controle</div>
+                        <h1>Visão geral</h1>
+                        <p class="sub">Acompanhe os chamados e a operação da equipe em um só lugar.</p>
+                    </div><a class="btn btn-primary" href="pages/chamado-form.html">＋ Novo chamado</a>
+                </div>
+                <div class="grid stats">
+                    <article class="card">
+                        <div class="stat-top">Total de chamados <span class="stat-icon">▤</span></div>
+                        <div class="stat-number">128</div>
+                        <div class="stat-note">Chamados cadastrados</div>
+                    </article>
+                    <article class="card">
+                        <div class="stat-top">Abertos <span class="stat-icon"
+                                style="color:#b86a13;background:#fff3df">◷</span></div>
+                        <div class="stat-number">24</div>
+                        <div class="stat-note">Aguardando atendimento</div>
+                    </article>
+                    <article class="card">
+                        <div class="stat-top">Em atendimento <span class="stat-icon"
+                                style="color:#3174c8;background:#eaf3ff">⚙</span></div>
+                        <div class="stat-number">18</div>
+                        <div class="stat-note">Com técnicos responsáveis</div>
+                    </article>
+                    <article class="card">
+                        <div class="stat-top">Fechados <span class="stat-icon"
+                                style="color:#16865d;background:#e8f7f0">✓</span></div>
+                        <div class="stat-number">86</div>
+                        <div class="stat-note">Concluídos</div>
+                    </article>
+                </div>
+                <div class="grid dashboard-grid">
+                    <section class="card table-card">
+                        <div class="card-heading">
+                            <h2>Chamados recentes</h2><a class="ticket-id" href="pages/chamados.html">Ver todos →</a>
+                        </div>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Chamado</th>
+                                        <th>Título</th>
+                                        <th>Status</th>
+                                        <th>Prioridade</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dashboard-chamados">
+                                    <tr>
+                                        <td class="ticket-id">#1024</td>
+                                        <td>Computador não inicia</td>
+                                        <td><span class="badge b-orange">Aberto</span></td>
+                                        <td class="priority p-high">Alta</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ticket-id">#1023</td>
+                                        <td>Erro no sistema financeiro</td>
+                                        <td><span class="badge b-blue">Em atendimento</span></td>
+                                        <td class="priority p-high">Crítica</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ticket-id">#1022</td>
+                                        <td>Solicitação de acesso</td>
+                                        <td><span class="badge b-green">Fechado</span></td>
+                                        <td class="priority p-low">Baixa</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ticket-id">#1021</td>
+                                        <td>Instabilidade na rede</td>
+                                        <td><span class="badge b-gray">Aguardando cliente</span></td>
+                                        <td class="priority p-medium">Média</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <section class="card">
+                        <h2>Acesso rápido</h2>
+                        <div class="quick-links"><a class="quick-link"
+                                href="pages/clientes.html"><span>♙</span>Clientes</a><a class="quick-link"
+                                href="pages/categorias.html"><span>▦</span>Categorias</a><a class="quick-link"
+                                href="pages/tecnicos.html"><span>⚙</span>Técnicos</a></div>
+                        <div class="section-title">
+                            <h2 style="margin:0">Resumo da operação</h2>
+                        </div>
+                        <p class="sub">Utilize o menu lateral para gerenciar os cadastros e acompanhar os chamados. Os
+                            indicadores e chamados são carregados diretamente da API.</p>
+                    </section>
+                </div>
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API Spring Boot
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="./js/app.js" defer></script>
+</body>
+
+</html>

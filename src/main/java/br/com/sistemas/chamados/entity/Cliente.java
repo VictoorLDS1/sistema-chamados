@@ -2,7 +2,6 @@ package br.com.sistemas.chamados.entity;
 
 import jakarta.persistence.*;
 
-/** ENTITY: Representa a tabela do banco. Cada objeto = uma linha */
 @Entity
 @Table(name = "clientes")
 public class Cliente {

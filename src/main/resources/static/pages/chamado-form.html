@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo chamado | HelpDesk</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar"><a class="brand" href="../index.html"><span class="brand-mark">H</span> helpdesk<span
+                    style="color:#8c9aff">.</span></a>
+            <div>
+                <div class="nav-label">MENU PRINCIPAL</div>
+                <nav class="nav"><a class="" href="../index.html"><span class="ico">⌂</span>Visão geral</a><a
+                        class="active" href="../pages/chamados.html"><span class="ico">▤</span>Chamados</a><a class=""
+                        href="../pages/clientes.html"><span class="ico">♙</span>Clientes</a><a class=""
+                        href="../pages/categorias.html"><span class="ico">▦</span>Categorias</a><a class=""
+                        href="../pages/tecnicos.html"><span class="ico">⚙</span>Técnicos</a></nav>
+            </div>
+            <div class="side-bottom">Sistema de Gestão de Chamados<br>Projeto acadêmico · Interface HTML/CSS</div>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div class="crumb"><span class="mobile-menu">☰　</span>Workspace　/　<strong>Novo chamado</strong></div>
+                <div class="top-actions"><span class="muted">Central de suporte</span>
+                    <div class="avatar">AD</div><span class="user">Administrador</span>
+                </div>
+            </header>
+            <section class="content">
+                <div class="page-head">
+                    <div>
+                        <div class="eyebrow">Atendimento / Cadastro</div>
+                        <h1>Novo chamado</h1>
+                        <p class="sub">Preencha os dados para registrar uma nova solicitação.</p>
+                    </div><a class="btn btn-light" href="chamados.html">← Voltar</a>
+                </div>
+                <section class="card form-card">
+                    <h2>Informações do chamado</h2>
+                    <form id="form-chamado">
+                        <div class="form-grid">
+                            <div class="field span-2"><label for="titulo">Título *</label><input id="titulo"
+                                    placeholder="Ex.: Computador não inicia" required></div>
+                            <div class="field span-2"><label for="descricao">Descrição *</label><textarea id="descricao"
+                                    placeholder="Descreva o problema ou solicitação..." required></textarea></div>
+                            <div class="field"><label for="cliente">Cliente *</label><select id="cliente">
+                                    <option value="">Selecione um cliente</option>
+                                </select></div>
+                            <div class="field"><label for="categoria">Categoria *</label><select id="categoria">
+                                    <option value="">Selecione uma categoria</option>
+                                </select></div>
+                            <div class="field"><label for="tecnico">Técnico responsável *</label><select id="tecnico">
+                                    <option value="">Selecione um técnico</option>
+                                </select></div>
+                            <div class="field"><label for="prioridade">Prioridade *</label><select id="prioridade">
+                                    <option>BAIXA</option>
+                                    <option selected>MEDIA</option>
+                                    <option>ALTA</option>
+                                    <option>CRITICA</option>
+                                </select></div>
+                        </div>
+                        <div class="form-actions"><a class="btn btn-light" href="chamados.html">Cancelar</a><button
+                                class="btn btn-primary" type="submit">Criar chamado</button></div>
+                        <p class="muted" style="font-size:11px;margin:14px 0 0">O chamado será salvo pela API do
+                            sistema.</p>
+                    </form>
+                </section>
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API Spring Boot
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

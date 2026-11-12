@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias | HelpDesk</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar"><a class="brand" href="../index.html"><span class="brand-mark">H</span> helpdesk<span
+                    style="color:#8c9aff">.</span></a>
+            <div>
+                <div class="nav-label">MENU PRINCIPAL</div>
+                <nav class="nav"><a class="" href="../index.html"><span class="ico">⌂</span>Visão geral</a><a class=""
+                        href="../pages/chamados.html"><span class="ico">▤</span>Chamados</a><a class=""
+                        href="../pages/clientes.html"><span class="ico">♙</span>Clientes</a><a class="active"
+                        href="../pages/categorias.html"><span class="ico">▦</span>Categorias</a><a class=""
+                        href="../pages/tecnicos.html"><span class="ico">⚙</span>Técnicos</a></nav>
+            </div>
+            <div class="side-bottom">Sistema de Gestão de Chamados<br>Projeto acadêmico · Interface HTML/CSS</div>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div class="crumb"><span class="mobile-menu">☰　</span>Workspace　/　<strong>Categorias</strong></div>
+                <div class="top-actions"><span class="muted">Central de suporte</span>
+                    <div class="avatar">AD</div><span class="user">Administrador</span>
+                </div>
+            </header>
+            <section class="content">
+                <div class="page-head">
+                    <div>
+                        <div class="eyebrow">Cadastros</div>
+                        <h1>Categorias</h1>
+                        <p class="sub">Organize os chamados por tipo de solicitação.</p>
+                    </div><a class="btn btn-primary" href="#nova-categoria">＋ Nova categoria</a>
+                </div>
+                <section class="card table-card">
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Categoria</th>
+                                    <th>Descrição</th>
+                                    <th>Chamados vinculados</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="categorias-tbody">
+                                <tr>
+                                    <td><strong>Hardware</strong></td>
+                                    <td>Equipamentos e periféricos</td>
+                                    <td>32</td>
+                                    <td><a class="ticket-id" href="#editar">Editar</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Software</strong></td>
+                                    <td>Programas e sistemas</td>
+                                    <td>46</td>
+                                    <td><a class="ticket-id" href="#editar">Editar</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Redes</strong></td>
+                                    <td>Conectividade e infraestrutura</td>
+                                    <td>28</td>
+                                    <td><a class="ticket-id" href="#editar">Editar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <div class="section-title" id="nova-categoria">
+                    <h2>Nova categoria</h2>
+                </div>
+                <section class="card form-card">
+                    <form id="form-categoria">
+                        <div class="form-grid">
+                            <div class="field"><label>Nome *</label><input id="categoria-nome"
+                                    placeholder="Ex.: Hardware" required></div>
+                            <div class="field"><label>Descrição</label><input id="categoria-descricao"
+                                    placeholder="Descreva a categoria"></div>
+                        </div>
+                        <div class="form-actions"><button class="btn btn-primary" type="submit">Salvar
+                                categoria</button></div>
+                    </form>
+                </section>
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API Spring Boot
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

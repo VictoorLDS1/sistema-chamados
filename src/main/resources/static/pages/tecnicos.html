@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnicos | HelpDesk</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar"><a class="brand" href="../index.html"><span class="brand-mark">H</span> helpdesk<span
+                    style="color:#8c9aff">.</span></a>
+            <div>
+                <div class="nav-label">MENU PRINCIPAL</div>
+                <nav class="nav"><a class="" href="../index.html"><span class="ico">⌂</span>Visão geral</a><a class=""
+                        href="../pages/chamados.html"><span class="ico">▤</span>Chamados</a><a class=""
+                        href="../pages/clientes.html"><span class="ico">♙</span>Clientes</a><a class=""
+                        href="../pages/categorias.html"><span class="ico">▦</span>Categorias</a><a class="active"
+                        href="../pages/tecnicos.html"><span class="ico">⚙</span>Técnicos</a></nav>
+            </div>
+            <div class="side-bottom">Sistema de Gestão de Chamados<br>Projeto acadêmico · Interface HTML/CSS</div>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div class="crumb"><span class="mobile-menu">☰　</span>Workspace　/　<strong>Técnicos</strong></div>
+                <div class="top-actions"><span class="muted">Central de suporte</span>
+                    <div class="avatar">AD</div><span class="user">Administrador</span>
+                </div>
+            </header>
+            <section class="content">
+                <div class="page-head">
+                    <div>
+                        <div class="eyebrow">Equipe</div>
+                        <h1>Técnicos e usuários</h1>
+                        <p class="sub">Gerencie os responsáveis pelo atendimento.</p>
+                    </div><a class="btn btn-primary" href="#novo-tecnico">＋ Novo técnico</a>
+                </div>
+                <section class="card table-card">
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>E-mail</th>
+                                    <th>Perfil</th>
+                                    <th>Chamados atribuídos</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tecnicos-tbody">
+                                <tr>
+                                    <td><strong>Lucas Mendes</strong></td>
+                                    <td>lucas@empresa.com</td>
+                                    <td><span class="badge b-blue">TECNICO</span></td>
+                                    <td>12</td>
+                                    <td><a class="ticket-id" href="#editar">Editar</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ana Souza</strong></td>
+                                    <td>ana@empresa.com</td>
+                                    <td><span class="badge b-blue">TECNICO</span></td>
+                                    <td>9</td>
+                                    <td><a class="ticket-id" href="#editar">Editar</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Administrador</strong></td>
+                                    <td>admin@empresa.com</td>
+                                    <td><span class="badge b-green">ADMIN</span></td>
+                                    <td>0</td>
+                                    <td><a class="ticket-id" href="#editar">Editar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <div class="section-title" id="novo-tecnico">
+                    <h2>Novo técnico/usuário</h2>
+                </div>
+                <section class="card form-card">
+                    <form id="form-tecnico">
+                        <div class="form-grid">
+                            <div class="field"><label>Nome *</label><input id="tecnico-nome" placeholder="Nome completo"
+                                    required></div>
+                            <div class="field"><label>E-mail *</label><input id="tecnico-email" type="email"
+                                    placeholder="email@empresa.com" required></div>
+                            <div class="field"><label>Perfil *</label><select id="tecnico-perfil">
+                                    <option value="TECNICO">TECNICO</option>
+                                    <option value="ADMIN">ADMIN</option>
+                                </select></div>
+                        </div>
+                        <div class="form-actions"><button class="btn btn-primary" type="submit">Salvar usuário</button>
+                        </div>
+                    </form>
+                </section>
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API Spring Boot
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>

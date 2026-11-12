@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamados | HelpDesk</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar"><a class="brand" href="../index.html"><span class="brand-mark">H</span> helpdesk<span
+                    style="color:#8c9aff">.</span></a>
+            <div>
+                <div class="nav-label">MENU PRINCIPAL</div>
+                <nav class="nav"><a class="" href="../index.html"><span class="ico">⌂</span>Visão geral</a><a
+                        class="active" href="../pages/chamados.html"><span class="ico">▤</span>Chamados</a><a class=""
+                        href="../pages/clientes.html"><span class="ico">♙</span>Clientes</a><a class=""
+                        href="../pages/categorias.html"><span class="ico">▦</span>Categorias</a><a class=""
+                        href="../pages/tecnicos.html"><span class="ico">⚙</span>Técnicos</a></nav>
+            </div>
+            <div class="side-bottom">Sistema de Gestão de Chamados<br>Projeto acadêmico · Interface HTML/CSS</div>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div class="crumb"><span class="mobile-menu">☰　</span>Workspace　/　<strong>Chamados</strong></div>
+                <div class="top-actions"><span class="muted">Central de suporte</span>
+                    <div class="avatar">AD</div><span class="user">Administrador</span>
+                </div>
+            </header>
+            <section class="content">
+                <div class="page-head">
+                    <div>
+                        <div class="eyebrow">Atendimento</div>
+                        <h1>Chamados</h1>
+                        <p class="sub">Consulte, filtre e acompanhe as solicitações de suporte.</p>
+                    </div><a class="btn btn-primary" href="chamado-form.html">＋ Novo chamado</a>
+                </div>
+                <section class="card table-card">
+                    <div class="filters"><input id="filtro-busca" class="search" type="search"
+                            placeholder="Buscar por título ou descrição"><select id="filtro-status">
+                            <option value="">Todos os status</option>
+                            <option>ABERTO</option>
+                            <option>EM_ATENDIMENTO</option>
+                            <option>AGUARDANDO_CLIENTE</option>
+                            <option>FECHADO</option>
+                        </select><select id="filtro-prioridade">
+                            <option value="">Todas as prioridades</option>
+                            <option>BAIXA</option>
+                            <option>MEDIA</option>
+                            <option>ALTA</option>
+                            <option>CRITICA</option>
+                        </select><input id="filtro-cliente" class="search" style="min-width:130px" type="number"
+                            placeholder="ID do cliente"></div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Título</th>
+                                    <th>Cliente</th>
+                                    <th>Categoria</th>
+                                    <th>Técnico</th>
+                                    <th>Prioridade</th>
+                                    <th>Status</th>
+                                    <th>Abertura</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="chamados-tbody">
+                                <tr>
+                                    <td class="ticket-id">#1024</td>
+                                    <td>Computador não inicia</td>
+                                    <td>Mariana Costa</td>
+                                    <td>Hardware</td>
+                                    <td>Lucas Mendes</td>
+                                    <td class="priority p-high">ALTA</td>
+                                    <td><span class="badge b-orange">ABERTO</span></td>
+                                    <td>05/11/2026</td>
+                                    <td><a class="ticket-id" href="chamado-detalhe.html">Ver →</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="ticket-id">#1023</td>
+                                    <td>Erro no sistema financeiro</td>
+                                    <td>João Pedro</td>
+                                    <td>Software</td>
+                                    <td>Ana Souza</td>
+                                    <td class="priority p-high">CRÍTICA</td>
+                                    <td><span class="badge b-blue">EM ATENDIMENTO</span></td>
+                                    <td>04/11/2026</td>
+                                    <td><a class="ticket-id" href="chamado-detalhe.html">Ver →</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="ticket-id">#1022</td>
+                                    <td>Solicitação de acesso</td>
+                                    <td>Carla Lima</td>
+                                    <td>Acesso</td>
+                                    <td>Lucas Mendes</td>
+                                    <td class="priority p-low">BAIXA</td>
+                                    <td><span class="badge b-green">FECHADO</span></td>
+                                    <td>03/11/2026</td>
+                                    <td><a class="ticket-id" href="chamado-detalhe.html">Ver →</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="ticket-id">#1021</td>
+                                    <td>Instabilidade na rede</td>
+                                    <td>Pedro Alves</td>
+                                    <td>Redes</td>
+                                    <td>Não atribuído</td>
+                                    <td class="priority p-medium">MÉDIA</td>
+                                    <td><span class="badge b-gray">AGUARDANDO CLIENTE</span></td>
+                                    <td>02/11/2026</td>
+                                    <td><a class="ticket-id" href="chamado-detalhe.html">Ver →</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-heading"><span class="muted"><span id="paginacao-info">Carregando
+                                chamados...</span></span>
+                        <div><button id="pagina-anterior" class="btn btn-light" type="button">← Anterior</button>
+                            <button id="pagina-proxima" class="btn btn-light" type="button">Próxima →</button></div>
+                    </div>
+                </section>
+                <div class="footer-note">HelpDesk · Interface visual demonstrativa · Integração com API Spring Boot
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../js/app.js" defer></script>
+</body>
+
+</html>
